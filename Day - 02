@@ -54,9 +54,33 @@ Output:
 
 
 
-Solution ----------   select(
+Solution ----------   select (
                       select distinct salary
                       from employee 
                       order by salary desc
                       limit 1 offset 1
                       )as secondhighestsalary;
+
+
+
+
+
+
+Explanation -------   So We Have An Employee Table Wherein We Have Employee Id & Salary. Here The Question Clearly Asks Us To Find The Second Highest Distinct Salary 
+                      From The Employee Table And Tells Us That In Case If We Don't Have Any Second Highest Salary Then We Have To Report It As Null . 
+
+                      The Word Here "Distinct" Means That We Don't Have Any Duplicates Or Repeats And Only The Unique Distinct Values In Our Data As Far As In 
+                      This Question We Need Distinct Salary i,e, If There Are Salaries In Our Data Let's Say 100 , 200 , 300 , 300 , 300 , 500 Then The Distinct 
+                      Salary Would Mean Only The Unique Values Not The Repeated Duplicate Ones So It Will Be 100 , 200 , 300 , 500 As In Our Example . As We Can
+                      Notice In Our Question That We Already Have Distinct Salaries & No Duplicates We Have 100 , 200 , 300 & According To This The Second Highest
+                      Salary Would Be 200 . 
+
+                     Now Let's Talk About Our Query . 
+
+                     First We Need To Find The Second Highest Distinct Salary So We Write [ select distinct salary  from employee ] Which Means It Will Only Select 
+                     Unique Values In Salary Coloumn From The Employees Table . Now We Write [ order by salary desc ] Which Means That The Data Should Be Ordered As 
+                     Per Salary As In Highest To Lowest Which In Our Case Would Look Like --- 300 , 200 , 100 From The Employee Table . Now We Further Write [ limi 1 
+                     offset 1 ] Which Basically Means Choose 1 After Leaving 1 Row Which In Our Case Would Mean Leaving 300 & Choosing The Only & Only Value After 300
+                     Which Is 200 Which Is Exactly What Our Question Asked - "" The Second Highest Distinct Salary "". After Writing This Whole Query We Select All This 
+                     In Bracket & We Write [ Select ---- As Second Highest Salary ] Beacuse As We Have Got Our Final Answer Which Is 200 But We Want To Also Name To Our
+                     Table Heading So We Wrote This Query . 
