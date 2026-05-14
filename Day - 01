@@ -75,3 +75,44 @@ Solution-------SELECT
                FROM person
                LEFT JOIN address
                ON person.personId = address.personId;
+
+
+
+
+
+
+
+Explanation ---------- So In This Probem Set We Saw That The Question Is Asking Us To Have Such A Table Wherein
+                       We Have The Firstname , Lastname & We Can Notice Its Present In "Person" Table And
+                       City , State Which Is In "Address" Table . 
+                       
+                       Now The Question Is Telling Us That If There Is Person Id In Person Table Whose Address Is Not Mentioned
+                       In The Address Table Then We Have To Report This As "Null" In Output .
+                       
+
+                       So As We Can See In The Person Table That We Have Two Person Id Which Are 
+                       1 --- Alice & 2 --- Bob And As We Go & Check In The Address Table For Both Of Them It Is Noticed That 
+                      The Address Mentioned As New York City Is For Person Id 2 Which Is Bob But There Is No Record Of The 
+                      Address For Person Id 1 Which Is Alice So Now We Know That We Have To Report This Part As Null In Our 
+                      Output . So We Have Our Final Answer Where We Have The Firstname , Lastname , City & State Which Is 
+                      This Is What Our Final Output Will Atleast Look Like . 
+                      
+                      
+                       Firstname | Lastname | City          | State
+                       Alice     | Wang     | Null          | Null 
+                       Bob       | Alice    | New York City | New York 
+                      
+                      
+                      
+
+                     Now Let's Talk About Our Query -----
+                     [ select person.firstname , person.lastname , address.city , address.state ] Is In Order To Select The Respective
+                     Data From Their Respective Tables As Firstanme , Lastname Are Mentioned In Person Table But City & State Are 
+                     Mentioned In Address Table . [ From Person ] Means That We Are Starting With Person Table . [ Left Join Address ]
+                     Means That We Are Using Left Join Function Here . Why ? Because The Question clearly Asks Us To Report 
+                     firstname , Lastname , City & State Of "" Each Person In The Person Table "" Which Means We Need All Of 
+                     The Data Of Person Table Along With That Only The Matching Rows From Another Table Which Is The Address Table Here . 
+                     This Is The Main Reason Why We Use The Left Join Function Here In This Question . [ on person.personid = address.personid ] 
+                     Means That We Are Joining Two Tables Person Table & Address Table On The Basis Of Person Id Which Is Common In
+                     Both These Tables & Starting With [ person.person id ] Beacuse We Used Left Join Function So We Start With The Left Table . 
+                      
