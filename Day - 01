@@ -68,10 +68,10 @@ addressId = 1 contains information about the address of personId = 2.
 
 
 Solution-------SELECT 
-           person.firstName,
-           person.lastname,
-           address.city,
-           address.state
-    FROM person
-    LEFT JOIN address
-    ON person.personId = address.personId;
+               person.firstName,
+               person.lastname,
+               address.city,
+               address.state
+               FROM person
+               LEFT JOIN address
+               ON person.personId = address.personId;
