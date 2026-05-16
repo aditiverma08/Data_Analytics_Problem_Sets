@@ -113,4 +113,29 @@ Solution ---------   SELECT
 
 
 
-Explanation ---------  
+Explanation ---------  So In This Question We Are Given An Employee Table & Department Table & What The Question Is Asking Is That The Employees Who Are High
+                       Earners In Each Department Like IT Department And Sales Department . 
+
+                       We Start With The Inner Query [ select * , dense_rank() over (partition by departmentid order by salary desc ) as rnk From Employee ] 
+                       Since The Question Clearly Asked Us High Earners Employees In Each Department So Here We Will Use The Concept Of Dense Rank & Partition
+                       By Departmentid Beacuse We Want To Segregate The Employees Department Wise . On The Other Hand , To Get High Earner Employees We Use Dense 
+                       Rank Bcz It Will Rank On The Basis Of Their Salary From Highest To Lowest Which Is The Reason Why We Wrote [ Order By Salary Desc ] Since 
+                       Its An Inner Query There Are Things Left To Do We Have To Name This Whole Query In Alias So We Give This Query A Nickname Which Is "rnk"
+                       And [ From Employee ] Means That We Are Begining With The Employees Table . 
+
+                       Now Since We Need Our Output To Look Like Wherein I Have The Department Name , Employee Name And Salary So We Write Outer Query Which Goes Like
+                       [ Select d.name as department e.name as employee e.salary as salary ] So We Take Data From Their Respective Tables Like Department Name From 
+                       Department Table , Employment Name From Employee Table & Salary From Employee Table And We Select All This From Table Employee And We Name It As 
+                       "e" . 
+
+                      Now We Need To Join Both The Tables Employee And Department Table Bcz If We Don't Do It We Can't Come To Our Final Output Bcz They Are Both Linked 
+                      To Each Other So Here We Use The Join Function & We Do It On The Basis Of Department Id Bcz It Is Common In Both The Tables . After Joining These 2
+                      Tables We Write A Condition Where e.rnk <=3 Which Means Where The Rank Should Come Uptill Top 3 . We Finally Get The High Earners Employee In Each
+                      Department . 
+
+                      In Our Output In IT Department We Get Max As The Highest Earner Employee With 90,000 Then Followed By Joe , Randy , & Will With 85,000 , 85,000 & 70,000
+                      Coming In The Sales Department We Get Henry As The Highest Earner Employee With 80,000 Then Sam With 60,000 . 
+
+                      One Important Thing To Notice Here Is That We Used Dense Rank () Bcz We Wanted To Give Ranks Equally To Those Whp Got The Same salary Like As Can See
+                      In Our Case With 85,000 Salary , If We Might've Used Row Rank () Concept Here Then It Might've Taken Only One 85,000 So This Was A Crucial Point To 
+                      Consider While Solving This Question . 
