@@ -1,1 +1,56 @@
+Question -----------  Table: Person
 
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| id          | int     |
+| email       | varchar |
++-------------+---------+
+id is the primary key (column with unique values) for this table.
+Each row of this table contains an email. The emails will not contain uppercase letters.
+ 
+
+Write a solution to report all the duplicate emails. Note that it's guaranteed that the email field is not NULL.
+
+Return the result table in any order.
+
+The result format is in the following example.
+
+ 
+
+Example 1:
+
+Input: 
+Person table:
++----+---------+
+| id | email   |
++----+---------+
+| 1  | a@b.com |
+| 2  | c@d.com |
+| 3  | a@b.com |
++----+---------+
+Output: 
++---------+
+| Email   |
++---------+
+| a@b.com |
++---------+
+Explanation: a@b.com is repeated two times.
+
+
+
+
+
+Solution -------------  select email from person 
+                        group by email
+                        having count(email) > 1;
+
+
+
+Explanation --------------  In This Question We Have A Person Table Wherein We Have Personid And Person's Email Id . Here The Question Is Asking Us To Report All
+                            The Duplicate Email-Id's . Now To Do This The First Thing That We Need To Do Is That We Need To Group The Emails Sepeartely With Their
+                            Respective Personid's . So We Start Our Query With [ select email from person group by email ] So Here We Have Selected All The Emails
+                            From Our Data And We Have Sorted The Emails In Form Of Group In A Way Where We Have Similar One's In A Group . Now Since We Sorted Them 
+                            Group Wise Now We Have To Answer The Question To Report All The Duplicates . As We Can See Clearly In Our Data That The Duplicate Email 
+                            Is ' a@b.com " So The Query To Get This Particular Output After Segregating The Emails In Form Of Group Will Be [ having count(email) > 1 ]
+                            Which Basically Means Count The The Email Which Appears More Than Once In Our Data Basically The Duplicate Email Which In Our Case Is a@b.com 
